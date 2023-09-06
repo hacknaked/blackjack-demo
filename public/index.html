@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Blackjack server</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/css/uikit.min.css"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="uk-text-center">
+      <div class="uk-flex uk-flex-column uk-flex-top">
+        <div class="container uk-card uk-card-default uk-card-body uk-margin-top uk-margin-right">
+          <h2>Blackjack server</h2>
+          <img width="48px" src="/favicon.png" alt="Centered Image" class="uk-margin-bottom" />
+          <form class="uk-form-stacked uk-text-left">
+            <div class="uk-margin">
+              <label class="uk-form-label">Player name</label>
+              <div class="uk-form-controls">
+                <input
+                  class="uk-input"
+                  id="playerName"
+                  type="text"
+                  value="Player1"
+                  placeholder="Player1"
+                />
+              </div>
+            </div>
+            <div class="uk-margin">
+              <label class="uk-form-label">Delay</label>
+              <div class="uk-form-controls">
+                <input class="uk-input" id="delay" type="text" value="120" placeholder="120 secs" />
+              </div>
+            </div>
+          </form>
+          <button class="uk-button uk-button-primary uk-margin-top" onclick="newGame()">
+            <b>New game</b>
+          </button>
+        </div>
+        <div class="container uk-card uk-card-default uk-card-body uk-margin-top uk-margin-bottom">
+          <h4>Latest games</h4>
+          <table id="gameTable" class="uk-table uk-text-left">
+            <thead>
+              <tr>
+                <th>Game ID</th>
+                <th>Player</th>
+                <th>Winner</th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="/script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async function () {
+        await hydrateView(renderLatestGames, 135000)
+      })
+    </script>
+  </body>
+</html>

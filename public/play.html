@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Blackjack server</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/css/uikit.min.css"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="statusContainer">
+      <ul class="uk-list">
+        <li>
+          <a href="/" class="text-bold uk-text-decoration-none uk-text-bold">&#8249; back</a>
+        </li>
+        <li>status: <span id="status"></span></li>
+        <li>winner: <span id="winner"></span></li>
+      </ul>
+    </div>
+    <div class="uk-text-center uk-margin-large-top">
+      <div id="dealer"></div>
+      <div id="player"></div>
+      <div class="uk-flex uk-flex-column uk-margin-large-top uk-margin-right">
+        <div>
+          <button
+            class="uk-button uk-button-primary uk-margin"
+            disabled
+            onclick="playAction('hit')"
+          >
+            Hit
+          </button>
+        </div>
+        <div>
+          <button
+            class="uk-button uk-button-default uk-margin"
+            disabled
+            onclick="playAction('stay')"
+          >
+            Stay
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="/script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async function () {
+        await hydrateView(renderGame, 1000)
+      })
+    </script>
+  </body>
+</html>
